@@ -29,6 +29,8 @@ export default function LoginPage() {
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
+
+      //email and password are correct, redirect to dashboard
       alert("Hello");
       //router.push('/dashboard');
     } catch (err) {
@@ -42,7 +44,7 @@ export default function LoginPage() {
     <div>
       <h1>เข้าสู่ระบบ</h1>
 
-      {error && <p>{error}</p>}
+      
 
       <form onSubmit={handleLogin}>
         <div>
@@ -63,9 +65,12 @@ export default function LoginPage() {
             required
           />
         </div>
+        <a href="#">สมัครสมาชิก</a>
+        <a href="#">ลืมรหัสผ่าน?</a>
         <button type="submit" disabled={loading} onClick={handleLogin}>
           {loading ? 'กำลังเข้าสู่ระบบ...' : 'เข้าสู่ระบบ'}
         </button>
+        {error && <p>{error}</p>}
       </form>
     </div>
   );
