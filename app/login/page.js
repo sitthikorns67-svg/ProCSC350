@@ -24,7 +24,7 @@ export default function LoginPage() {
 
       const data = await res.json();
 
-      if (!res.ok) throw new Error(data.message || 'Login failed');
+      if (!res.ok) throw new Error(data.message || 'email หรือ รหัสผ่านไม่ถูกต้อง');
 
       if (data.token) {
         localStorage.setItem('token', data.token);

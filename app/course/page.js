@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Page() {
   return (
-    <div>Home</div>
+    <div>Course (หน้ารายวิชา)</div>
   )
 }
