@@ -33,6 +33,11 @@ export default function LoginPage() {
       //email and password are correct, redirect to dashboard
       alert("Hello");
       //router.push('/dashboard');
+      /*
+      * อยากให้เช็คด้วยว่า status เป็นอะไรถ้าเป็น student จะไปหน้า /app/student 
+      * ถ้าเป็น instructor จะไปหน้า /app/instructor 
+      * และถ้าเป็น admin จะไปหน้า /app/admin
+      */
     } catch (err) {
       setError(err.message);
     } finally {
