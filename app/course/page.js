@@ -32,10 +32,10 @@ export default function Page() {
       <nav>
         <div>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Enroll</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/courses">Courses</a></li>
+            <li><a href="/enroll">Enroll</a></li>
+            <li><a href="/about">About</a></li>
           </ul>
         </div>
       </nav>
