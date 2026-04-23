@@ -8,27 +8,27 @@ export default function Page() {
             </div>
             <form>
                 <div>
-                    <label htmlFor="id">ID</label>
+                    <label htmlFor="id">ID : </label>
                     <input id="id" name="id" type="number" placeholder="เช่น 67xxxxx" />
                 </div>
 
                 <div>
-                    <label htmlFor="full_name">Full Name</label>
+                    <label htmlFor="full_name">Full Name : </label>
                     <input id="full_name" name="full_name" type="text" placeholder="ชื่อ-นามสกุล" required />
                 </div>
 
                 <div>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Email : </label>
                     <input id="email" name="email" type="email" placeholder="example@email.com" required />
                 </div>
 
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password : </label>
                     <input id="password" name="password" type="password" placeholder="รหัสผ่าน" required />
                 </div>
 
                 <div>
-                    <label htmlFor="role">Role</label>
+                    <label htmlFor="role">Role : </label>
                     <select id="role" name="role" defaultValue="student">
                         <option value="student">Student</option>
                         <option value="instructor">Instructor</option>
