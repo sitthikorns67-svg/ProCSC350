@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function Page() {
 
-  /*  หน้า course จะแสดง course เรียนทั้งหมดออกมา 
+  /*  หน้า course จะแสดง course เรียนทั้งหมดออกมาพร้อมทำปุ่ม enroll ปุ่มลงทะเบียนเรียน
+      api = https://online-cours-api-puap.vercel.app/api/courses 
       และมีแถบ menu มี（Home，enroll, abount me, course, login）
       และมีช่องสำหรับค้นหา course เรียนจาก title
   */
