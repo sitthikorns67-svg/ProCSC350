@@ -23,19 +23,20 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
+      console.log(data);
 
       if (!res.ok) throw new Error(data.message || 'email หรือ รหัสผ่านไม่ถูกต้อง');
 
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
-      
-      if (data.role) {
+
+      if (data.user.role) {
         const redirectPath = {
-          student: '/courses',
+          student: '/course',
           instructor: '/instructor',
           admin: '/admin',
-        }[data.role];
+        }[data.user.role];
 
         if (redirectPath) {
           router.push(redirectPath);
