@@ -1,10 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Page() {
   const [courses, setCourses] = useState([])
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     async function fetchCourses() {
@@ -26,6 +28,11 @@ export default function Page() {
     course.title.toLowerCase().includes(search.toLowerCase())
   )
 
+  const handleLessons = (courseId) => {
+    router.push(`/course/${courseId}/lessons`)
+  }
+
+
   return (
     <div>
       {/* Navbar */}
@@ -33,7 +40,7 @@ export default function Page() {
         <div>
           <ul>
             <li><a href="/home">Home</a></li>
-            <li><a href="/courses">Courses</a></li>
+            <li><a href="/course">Courses</a></li>
             <li><a href="/enroll">Enroll</a></li>
             <li><a href="/about">About</a></li>
           </ul>
@@ -81,7 +88,10 @@ export default function Page() {
 
               <p className="desc">{course.description}</p>
 
-              <button className="enroll-btn">
+              <button 
+                className="enroll-btn"
+                onClick={() => handleLessons(course.id)}                
+              >
                 Enroll
               </button>
             </div>
