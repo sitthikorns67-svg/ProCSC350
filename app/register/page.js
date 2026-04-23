@@ -1,11 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Page() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [isError, setIsError] = useState(false)
+  const router = useRouter()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -90,7 +92,9 @@ export default function Page() {
           <button type="submit" disabled={loading} onClick={handleSubmit}>
             {loading ? 'กำลังบันทึก...' : 'บันทึก'}
           </button>
-          <button type="reset" disabled={loading}>ยกเลิก</button>
+          <button type="reset" disabled={loading} onClick={() => {router.push('/home')}}>
+            ยกเลิก
+          </button>
         </div>
       </form>
     </div>

@@ -29,15 +29,22 @@ export default function LoginPage() {
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
+      
+      if (data.role) {
+        const redirectPath = {
+          student: '/courses',
+          instructor: '/instructor',
+          admin: '/admin',
+        }[data.role];
 
-      //email and password are correct, redirect to dashboard
-      alert("Hello");
-      //router.push('/dashboard');
-      /*
-      * อยากให้เช็คด้วยว่า status เป็นอะไรถ้าเป็น student จะไปหน้า /app/student 
-      * ถ้าเป็น instructor จะไปหน้า /app/instructor 
-      * และถ้าเป็น admin จะไปหน้า /app/admin
-      */
+        if (redirectPath) {
+          router.push(redirectPath);
+        } else {
+          throw new Error('Invalid user role');
+        }
+      } else {
+        throw new Error('User role not provided');
+      }
     } catch (err) {
       setError(err.message);
     } finally {
@@ -48,9 +55,6 @@ export default function LoginPage() {
   return (
     <div>
       <h1>เข้าสู่ระบบ</h1>
-
-      
-
       <form onSubmit={handleLogin}>
         <div>
           <label>อีเมล</label>
