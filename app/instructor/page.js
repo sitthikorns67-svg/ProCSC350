@@ -2,6 +2,10 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>page</div>
+    <div>
+      <div>
+        <h1>instructor page</h1>
+      </div>
+    </div>
   )
 }
