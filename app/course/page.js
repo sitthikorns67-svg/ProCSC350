@@ -71,15 +71,7 @@ export default function Page() {
             <div className="course-card" key={course.id}>
               <h2>{course.title}</h2>
               {course.thumbnail_url && (
-                <iframe
-                  width="600px"
-                  height="400px"
-                  src={course.thumbnail_url.replace("youtu.be/", "www.youtube.com/embed/")}
-                  title="Course Preview"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <img src={course.thumbnail_url} alt={course.title} className="thumbnail" width={500} height={300} />
               )}
               <p className="teacher">
                 Instructor: {course.users?.full_name || "Unknown"}

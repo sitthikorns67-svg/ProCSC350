@@ -76,6 +76,18 @@ export default function CreateCoursePage() {
     }
   }
 
+  async function handleDelete(courseId) {
+    if (!confirm(`ลบ course ID ${courseId}?`)) return
+    try {
+      const res = await fetch(`/api/courses/${courseId}`, { method: 'DELETE' })
+      const data = await res.json()
+      if (!res.ok || !data.ok) throw new Error(data.error || 'Failed to delete course')
+      setCourses((prev) => prev.filter((c) => c.id !== courseId))
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
   return (
     <div>
       <h1>Create New Course</h1>
@@ -90,7 +102,7 @@ export default function CreateCoursePage() {
           placeholder="Enter instructor ID"
           onKeyDown={(e) => e.key === 'Enter' && handleSearchByInstructor()}
         />
-        <button onClick={handleSearchByInstructor} disabled={loading || !instructorSearchId}>
+        <button onClick={handleSearchByInstructor}>
           {loading ? 'Searching...' : 'Search'}
         </button>
       </div>
@@ -107,6 +119,8 @@ export default function CreateCoursePage() {
               {c.thumbnail_url && (
                 <img src={c.thumbnail_url} alt={c.title} width={200} />
               )}
+              <button onClick={() => router.push(`/instructor/courses/${c.id}`)}>Edit</button>
+              <button onClick={() => handleDelete(c.id)}>Delete</button>
               <hr />
             </div>
           ))}
