@@ -67,6 +67,8 @@ export default function CreateCoursePage() {
         }),
       })
       const data = await res.json()
+      alert(`Course created`)
+
       if (!res.ok) throw new Error(data.error)
       router.push('/instructor')
     } catch (err) {
