@@ -98,7 +98,6 @@ export default function Page() {
           <select id="role" name="role" defaultValue="student">
             <option value="student">Student</option>
             <option value="instructor">Instructor</option>
-            <option value="admin">Admin</option>
           </select>
         </div>
 

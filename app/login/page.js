@@ -23,7 +23,7 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
-      localStorage.setItem('user', JSON.stringify(data))
+      console.log(data)
 
       if (!res.ok) throw new Error(data.message || 'email หรือ รหัสผ่านไม่ถูกต้อง');
 
@@ -35,7 +35,6 @@ export default function LoginPage() {
         const redirectPath = {
           student: '/course',
           instructor: '/instructor',
-          admin: '/admin',
         }[data.user.role];
 
         if (redirectPath) {
