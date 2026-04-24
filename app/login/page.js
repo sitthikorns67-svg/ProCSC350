@@ -23,7 +23,7 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
-      console.log(data);
+      localStorage.setItem('user', JSON.stringify(data))
 
       if (!res.ok) throw new Error(data.message || 'email หรือ รหัสผ่านไม่ถูกต้อง');
 
