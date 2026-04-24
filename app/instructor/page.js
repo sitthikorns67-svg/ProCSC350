@@ -119,7 +119,7 @@ export default function CreateCoursePage() {
               {c.thumbnail_url && (
                 <img src={c.thumbnail_url} alt={c.title} width={200} />
               )}
-              <button onClick={() => router.push(`/instructor/courses/${c.id}`)}>Edit</button>
+              <button onClick={() => router.push(`/instructor/lesson/${c.id}`)}>Edit</button>
               <button onClick={() => handleDelete(c.id)}>Delete</button>
               <hr />
             </div>
