@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
   const [loading, setLoading] = useState(false)
@@ -10,16 +10,25 @@ export default function Page() {
   const router = useRouter()
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault()           
     setLoading(true)
     setMessage('')
 
     const form = e.target
 
+    
+    const idValue = Number(form.id.value)
+    if (!idValue || idValue <= 0) {
+      setIsError(true)
+      setMessage('Error: กรุณากรอก ID ให้ถูกต้อง')
+      setLoading(false)
+      return
+    }
+
     const payload = {
-      id: Number(form.id.value),
-      full_name: form.full_name.value,
-      email: form.email.value,
+      id: idValue,
+      full_name: form.full_name.value.trim(),
+      email: form.email.value.trim(),
       password: form.password.value,
       role: form.role.value,
     }
@@ -32,14 +41,16 @@ export default function Page() {
       })
 
       const data = await res.json()
-      alert("Data saved")
 
+     
       if (!res.ok) {
         setIsError(true)
         setMessage('Error: ' + (data.message || data.error || 'เกิดข้อผิดพลาด'))
       } else {
         setIsError(false)
         setMessage('สมัครสมาชิกสำเร็จ!')
+        alert('Data saved')
+        router.push('/login')
         form.reset()
       }
     } catch (err) {
@@ -56,12 +67,15 @@ export default function Page() {
         <h1>Register</h1>
       </div>
 
-      {message && <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>}
+      {message && (
+        <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
+      )}
 
-      <form >
+     
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="id">ID : </label>
-          <input id="id" name="id" type="number" placeholder="เช่น 67xxxxx" required/>
+          <input id="id" name="id" type="number" placeholder="เช่น 67xxxxx" required />
         </div>
 
         <div>
@@ -89,12 +103,11 @@ export default function Page() {
         </div>
 
         <div>
-          <button type="submit" disabled={loading} onClick={handleSubmit}>
+          
+          <button type="submit" disabled={loading}>
             {loading ? 'กำลังบันทึก...' : 'บันทึก'}
           </button>
-          <button type="reset" disabled={loading} onClick={() => {router.push('/home')}}>
-            ยกเลิก
-          </button>
+          <button type="reset" disabled={loading}>ยกเลิก</button>
         </div>
       </form>
     </div>

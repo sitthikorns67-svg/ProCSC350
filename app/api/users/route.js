@@ -10,9 +10,3 @@ export async function POST(request) {
   const data = await res.json()
   return Response.json(data, { status: res.status })
 }
-
-export async function GET() {
-  const res = await fetch('https://online-cours-api-puap.vercel.app/api/users')
-  const data = await res.json()
-  return Response.json(data, { status: res.status })
-}
