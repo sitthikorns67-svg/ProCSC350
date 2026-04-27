@@ -9,7 +9,6 @@ export async function POST(request) {
 
   const data = await res.json()
   return Response.json(data, {
-    id: res.id 
     status: res.status
    })
 }
