@@ -163,6 +163,7 @@ export default function Page() {
             className={styles.buttonReset}
             type="reset"
             disabled={loading}
+            onClick={() => {router.push('/home')}}
           >
             ยกเลิก
           </button>
