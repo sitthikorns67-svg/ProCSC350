@@ -1,0 +1,164 @@
+/* ===== NAVBAR ===== */
+/* แถบนำทางด้านบนสุดของหน้า */
+.navbar {
+  background: #1a1a1a;      /* พื้นหลังสีดำ */
+  padding: 0 2rem;
+}
+
+/* จัด menu items เรียงแนวนอน */
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;         /* ลบ bullet point */
+  height: 52px;
+  align-items: center;      /* จัดกึ่งกลางแนวตั้ง */
+}
+
+/* ลิงก์ใน navbar */
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+/* เมื่อ hover ลิงก์ใน navbar */
+.navLink:hover {
+  opacity: 1;               /* สว่างขึ้นเมื่อ hover */
+}
+
+/* ===== HEADER ===== */
+/* ส่วนหัวข้อและช่องค้นหา */
+.header {
+  background: #ffffff;
+  border-bottom: 0.5px solid #e0e0e0;
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+}
+
+/* หัวข้อ "Course List" */
+.headerTitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+/* คำอธิบายใต้หัวข้อ */
+.headerDesc {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 1rem;
+}
+
+/* ช่องค้นหา course */
+.searchBox {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchBox:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== COURSE GRID ===== */
+/* กริดแสดง course card ทั้งหมด */
+.courseContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* responsive grid */
+  gap: 1.25rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== COURSE CARD ===== */
+/* กล่องแสดงข้อมูล course แต่ละอัน */
+.courseCard {
+  background: #ffffff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;         /* ตัด thumbnail ไม่ให้เกินมุมโค้ง */
+  display: flex;
+  flex-direction: column;   /* เรียง thumbnail → ข้อมูล → ปุ่ม แนวตั้ง */
+}
+
+/* รูป thumbnail ของ course */
+.thumbnail {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;        /* ครอบรูปให้เต็มพื้นที่โดยไม่ยืด */
+  display: block;
+}
+
+/* ส่วนเนื้อหาข้อมูล course ใน card */
+.cardBody {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;                  /* ยืดให้เต็มพื้นที่ที่เหลือ ปุ่มจะอยู่ด้านล่างเสมอ */
+}
+
+/* ชื่อ course */
+.cardTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+/* ชื่อ instructor */
+.teacher {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* คำอธิบาย course */
+.desc {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* ===== ENROLL BUTTON ===== */
+/* ปุ่ม Enroll — ความสำคัญหลัก */
+.enrollBtn {
+  margin: 0 1.25rem 1.25rem;
+  padding: 9px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.enrollBtn:hover {
+  background: #333333;
+}
+
+.enrollBtn:active {
+  transform: scale(0.98);   /* กดแล้วหดเล็กนิดหน่อย */
+}
+
+/* ===== LOADING / EMPTY STATE ===== */
+/* แสดงเมื่อกำลังโหลด หรือไม่พบ course */
+.loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 15px;
+  color: #888888;
+  font-weight: 400;
+}

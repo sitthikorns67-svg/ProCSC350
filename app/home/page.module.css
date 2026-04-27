@@ -1,0 +1,310 @@
+/* =======================================
+   สไตล์แถบนำทางด้านบน (Navigation Bar)
+   - ติดด้านบน (sticky) เมื่อเลื่อนลง
+   - ใช้สีไล่ระดับม่วงสวยงาม
+   ======================================= */
+.nav {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+/* ลิงก์นำทาง - สีขาว ข้อความปกติ
+   - เมื่อชี้ลิงก์จะมีพื้นหลังและเลื่อนขึ้น */
+.navList li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* เมื่อชี้ลิงก์ - เพิ่มพื้นหลังเบา ๆ และเลื่อนขึ้น
+   - ทำให้ผู้ใช้รู้ว่าลิงก์สามารถคลิกได้ */
+.navList li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* =======================================
+   ส่วนหลัก (Hero Section)
+   - พื้นหลังสีม่วยไล่ระดับ
+   - จัดเรียงตรงกลาง สูง 500px
+   - ข้อความสีขาว ดูสำคัญและเด่น
+   ======================================= */
+.heroSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* หัวข้อหลัก - ข้อความใหญ่โตเด่น
+   - ขนาด 3.5rem มีเงา 2px
+   - ความสูงบรรทัด 1.2 เพื่ออ่านสบายตา */
+.heroSection h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  max-width: 900px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ข้อความอธิบาย - ใหญ่กว่าปกติ อ่านง่าย
+   - ความโปร่งใจ 95% ให้ดูนุ่มนวล
+   - ความสูงบรรทัด 1.6 อ่านสบายตา */
+.heroSection p {
+  font-size: 1.25rem;
+  margin: 0;
+  max-width: 700px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* =======================================
+   ส่วนเรียกเชิญให้ลงทะเบียน (CTA Section)
+   - พื้นหลังสีขาว
+   - มีหัวข้อ ข้อความอธิบาย และปุ่ม
+   - จัดตรงกลาง เพื่อดึงความสนใจ
+   ======================================= */
+.ctaSection {
+  background: white;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+/* หัวข้อส่วนเรียกเชิญ - สีเข้ม
+   - ขนาด 2.5rem ข้อความหนา
+   - ดึงความสนใจของผู้ใช้ */
+.ctaSection h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+/* ข้อความอธิบายเพิ่มเติม - สีเทา
+   - อธิบายประโยชน์ของการลงทะเบียน
+   - ขนาด 1.1rem อ่านง่ายกว่าปกติ */
+.ctaSection p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 2.5rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* กลุ่มปุ่ม - จัดเรียงแนวนอน
+   - ระยะห่าง 1.5rem
+   - เลื่อนลงเมื่อขนาดหน้าจอเล็ก */
+.buttonContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* สไตล์ปุ่มทั่วไป - ปุ่มกลมสวยงาม
+   - ข้อความพิมพ์ใหญ่ ตัวหนา
+   - มีการเปลี่ยนแปลงผ่าน (transition) 0.3 วินาที */
+.buttonContainer button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ปุ่มหลัก (Primary) - สีม่วยไล่ระดับ
+   - ขาว + ม่วง = ดึงความสนใจ
+   - มีเงา 4px เพื่อให้ดูลึก */
+.buttonPrimary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* เมื่อชี้ปุ่มหลัก - เอฟเฟกต์ยกขึ้น
+   - เลื่อนขึ้น 3px ทำให้ดูเหมือนยก
+   - เงา 8px ทำให้ดูลึกขึ้น */
+.buttonPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* ปุ่มรอง (Secondary) - ขาว + border ม่วง
+   - ลูกเล่นเสริม ไม่ดึงความสนใจมากเท่าปุ่มหลัก
+   - สำหรับผู้ใช้ที่ตัดสินใจแล้ว */
+.buttonSecondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+/* เมื่อชี้ปุ่มรอง - เปลี่ยนสีเป็นม่วย
+   - พื้นหลัง = ม่วง ข้อความ = ขาว
+   - เลื่อนขึ้น 3px เหมือนปุ่มหลัก */
+.buttonSecondary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* =======================================
+   ส่วนท้ายหน้า (Footer)
+   - พื้นหลังสีเข้ม (#1a1a1a)
+   - มีลิขสิทธิ์ และลิงก์ขั้นต่ำ
+   - จัดเรียงแนวตั้งในมือถือ
+   ======================================= */
+.footer {
+  background: #1a1a1a;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* เนื้อหาภายในท้าย - จัดเรียงแนวตั้ง
+   - ความกว้างสูงสุด 1200px
+   - ระยะห่าง 2rem ระหว่างส่วนต่าง ๆ */
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ข้อมูลลิขสิทธิ์ - ข้อความเล็กสีเทา
+   - แสดง © ปี ชื่อเว็บไซต์
+   - อยู่ด้านล่าง */
+.footerCopyright {
+  font-size: 1rem;
+  color: #aaa;
+  margin: 0;
+}
+
+/* ลิงก์ท้ายหน้า - Privacy, Terms, Contact
+   - จัดเรียงแนวนอน ระยะห่าง 2rem
+   - เป็นลิงก์ไปยังหน้าข้อมูลสำคัญ */
+.footerLinks {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ลิงก์สีขาว - เห็นชัดบนพื้นเข้ม
+   - การเปลี่ยนแปลง 0.3 วินาที
+   - บอกผู้ใช้ว่านี่เป็นลิงก์ */
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* เมื่อชี้ลิงก์ท้าย - เปลี่ยนเป็นสีม่วย
+   - เพิ่ม underline เพื่อให้ชัดว่าชี้ที่ลิงก์
+   - ลิงค์สีม่วยตรงกับธีมเว็บ */
+.footerLinks a:hover {
+  color: #667eea;
+  text-decoration: underline;
+}
+
+/* =======================================
+   ตอบสนองหน้าจอขนาดเล็ก (Responsive)
+   - แต่ 768px ลงมา ปรับโครงสร้าง
+   - ปุ่มเป็นแนวตั้ง ข้อความเล็กลง
+   - ง่ายสำหรับมือถือ
+   ======================================= */
+@media (max-width: 768px) {
+  .heroSection h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroSection p {
+    font-size: 1.1rem;
+  }
+
+  .ctaSection h2 {
+    font-size: 2rem;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+  }
+
+  .buttonContainer button {
+    width: 100%;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navList li a {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 3rem 1rem;
+    min-height: auto;
+  }
+
+  .heroSection h1 {
+    font-size: 2rem;
+  }
+
+  .heroSection p {
+    font-size: 1rem;
+  }
+
+  .ctaSection {
+    padding: 3rem 1rem;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    padding: 0.75rem 1rem;
+  }
+
+  .navList {
+    gap: 1rem;
+  }
+}

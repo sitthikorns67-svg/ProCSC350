@@ -1,0 +1,193 @@
+/* ===== CONTAINER ===== */
+/* ครอบทั้งหน้า */
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* ===== INNER ===== */
+/* จำกัดความกว้างของเนื้อหา */
+.inner {
+  max-width: 560px;
+  margin: 0 auto;           /* จัดกึ่งกลางแนวนอน */
+}
+
+/* ===== TITLE ===== */
+/* หัวข้อ "Add Lesson to Course ID: ..." */
+.title {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+  color: #1a1a1a;
+}
+
+/* ===== FORM ===== */
+/* จัด field ต่าง ๆ เรียงแนวตั้ง */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ===== FIELD GROUP ===== */
+/* กลุ่ม label + input แต่ละช่อง */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ===== LABEL ===== */
+/* ป้ายกำกับแต่ละช่อง */
+.label {
+  font-size: 13px;
+  color: #666666;
+}
+
+/* ===== INPUT TEXT ===== */
+/* ช่องกรอกข้อมูลแบบ text */
+.inputText {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+/* เมื่อเอาเมาส์ชี้ที่ input */
+.inputText:hover {
+  border-color: #b0b0b0;
+}
+
+/* เมื่อคลิกเลือก input (กำลังพิมพ์) */
+.inputText:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== INPUT NUMBER ===== */
+/* ช่อง Position — แคบกว่าช่องอื่น */
+.inputNumber {
+  width: 120px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.inputNumber:hover {
+  border-color: #b0b0b0;
+}
+
+.inputNumber:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== TEXTAREA ===== */
+/* ช่อง Content แบบหลายบรรทัด */
+.textarea {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: inherit;     /* ใช้ font เดียวกับหน้าเว็บ */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;         /* ให้ resize ได้เฉพาะแนวตั้ง */
+  line-height: 1.6;
+  transition: border-color 0.2s;
+}
+
+.textarea:hover {
+  border-color: #b0b0b0;
+}
+
+.textarea:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== ERROR MESSAGE ===== */
+/* แสดงเมื่อ submit ไม่สำเร็จ */
+.error {
+  font-size: 13px;
+  color: #d32f2f;           /* สีแดง */
+  margin: 0;
+  padding: 8px 12px;
+  background: #fdecea;      /* พื้นหลังแดงอ่อน */
+  border-radius: 8px;
+  border: 1px solid #f5c6c6;
+}
+
+/* ===== BUTTON GROUP ===== */
+/* แถวปุ่ม Cancel และ Add Lesson */
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+/* ===== BUTTON CANCEL ===== */
+/* ปุ่ม Cancel — สีขาว ความสำคัญรอง */
+.buttonCancel {
+  flex: 1;
+  padding: 10px;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttonCancel:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.buttonCancel:disabled {
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+
+/* ===== BUTTON SUBMIT ===== */
+/* ปุ่ม Add Lesson — สีดำ ความสำคัญหลัก */
+.buttonSubmit {
+  flex: 1;
+  padding: 10px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* เมื่อ hover และปุ่มไม่ได้ disabled */
+.buttonSubmit:hover:not(:disabled) {
+  background: #333333;
+}
+
+/* เมื่อกดปุ่ม */
+.buttonSubmit:active:not(:disabled) {
+  transform: scale(0.98);   /* หดเล็กลงนิดหน่อยให้รู้สึกว่ากด */
+}
+
+/* เมื่อ loading */
+.buttonSubmit:disabled {
+  background: #aaaaaa;
+  cursor: not-allowed;
+}

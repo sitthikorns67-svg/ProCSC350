@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
+import styles from './lessons.module.css'
 
 export default function Page() {
   const { id } = useParams()
@@ -40,25 +41,27 @@ export default function Page() {
 
   if (loading) return <h2>Loading...</h2>
 
-  return (
-    <div>
-      <h1>Lessons</h1>
+    return (
+    <div className={styles['lessons-page']}>
+      <h1 className={styles['page-title']}>Lessons</h1>
 
       {lessons.map((lesson) => (
-        <div key={lesson.id}>
-          <h2>{lesson.title}</h2>
+        <div key={lesson.id} className={styles['lesson-card']}>
+          <h2 className={styles['lesson-title']}>{lesson.title}</h2>
 
-          <iframe
-            width="100%"
-            height="450"
-            src={getEmbedUrl(lesson.video_url)}
-            title={lesson.title}
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
+          <div className={styles['video-wrapper']}>
+            <iframe
+              width="100%"
+              height="450"
+              src={getEmbedUrl(lesson.video_url)}
+              title={lesson.title}
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
 
-          <p>{lesson.content}</p>
-          <hr />
+          <p className={styles['lesson-content']}>{lesson.content}</p>
+          <hr className={styles['lesson-divider']} />
         </div>
       ))}
     </div>

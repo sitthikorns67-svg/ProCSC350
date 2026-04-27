@@ -1,0 +1,365 @@
+/* createCourse.module.css */
+
+/* ===== CONTAINER ===== */
+/* ครอบทั้งหน้า */
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* ===== INNER WRAPPER ===== */
+/* จำกัดความกว้างของเนื้อหา */
+.inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== PAGE TITLE ===== */
+/* หัวข้อหลัก "Create New Course" */
+.title {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+  color: #1a1a1a;
+}
+
+/* ===== SECTION TITLE ===== */
+/* หัวข้อย่อย "All Courses by Instructor ID" */
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+  color: #1a1a1a;
+}
+
+/* ===== SEARCH ROW ===== */
+/* แถว input + ปุ่ม Search เรียงแนวนอน */
+.searchRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+/* input ใน searchRow ยืดเต็มพื้นที่ */
+.searchRow .inputText {
+  flex: 1;
+  width: auto;
+}
+
+/* ===== COURSE CARD ===== */
+/* กล่องแสดงข้อมูล course แต่ละอัน */
+.courseCard {
+  background: #ffffff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ชื่อ course ใน card */
+.courseCardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 2px;
+  color: #1a1a1a;
+}
+
+/* คำอธิบาย course ใน card */
+.courseCardDesc {
+  font-size: 13px;
+  color: #666666;
+  margin: 0 0 8px;
+}
+
+/* แถวปุ่ม Edit / Delete และ badge */
+.courseCardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* badge แสดงสถานะ Published / Draft */
+.badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+/* badge สีเขียว — Published */
+.badgePublished {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* badge สีเทา — Draft */
+.badgeDraft {
+  background: #f5f5f5;
+  color: #888888;
+}
+
+/* ===== DIVIDER ===== */
+/* เส้นแบ่งระหว่าง search section กับ create form */
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 1.5rem 0;
+  border: none;
+}
+
+/* ===== FORM WRAPPER ===== */
+/* จัด field ต่าง ๆ ใน create form เรียงแนวตั้ง */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ===== FIELD GROUP ===== */
+/* กลุ่ม label + input แต่ละช่อง */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ===== LABEL ===== */
+/* ป้ายกำกับแต่ละช่องกรอก */
+.label {
+  font-size: 13px;
+  color: #666666;
+}
+
+/* เครื่องหมาย * บอกว่าจำเป็นต้องกรอก */
+.required {
+  color: #d32f2f;
+}
+
+/* ===== INPUT ===== */
+/* ช่องกรอกข้อมูลแบบ text */
+.inputText {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.inputText:hover {
+  border-color: #b0b0b0;
+}
+
+.inputText:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ช่อง number ที่ให้แคบกว่าปกติ */
+.inputNumber {
+  width: 180px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.inputNumber:hover {
+  border-color: #b0b0b0;
+}
+
+.inputNumber:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== TEXTAREA ===== */
+/* ช่องกรอก Description แบบหลายบรรทัด */
+.textarea {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color 0.2s;
+}
+
+.textarea:hover {
+  border-color: #b0b0b0;
+}
+
+.textarea:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== THUMBNAIL PREVIEW ===== */
+/* รูป preview ของ thumbnail */
+.thumbnailPreview {
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  object-fit: cover;
+}
+
+/* ===== CHECKBOX ROW ===== */
+/* แถว checkbox + label "Publish immediately" */
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxRow input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #1a1a1a;
+}
+
+.checkboxRow label {
+  font-size: 13px;
+  color: #666666;
+  cursor: pointer;
+}
+
+/* ===== ERROR MESSAGE ===== */
+/* แสดงเมื่อ submit ไม่สำเร็จหรือ validation fail */
+.error {
+  font-size: 13px;
+  color: #d32f2f;
+  margin: 0;
+  padding: 8px 12px;
+  background: #fdecea;
+  border-radius: 8px;
+  border: 1px solid #f5c6c6;
+}
+
+/* ===== BUTTON GROUP ===== */
+/* แถวปุ่ม Cancel และ Create Course */
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+/* ===== BUTTON CANCEL ===== */
+/* ปุ่มยกเลิก — สีขาว ความสำคัญรอง */
+.buttonCancel {
+  flex: 1;
+  padding: 10px;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttonCancel:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.buttonCancel:disabled {
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+
+/* ===== BUTTON SEARCH ===== */
+/* ปุ่ม Search — สีเทาเข้ม */
+.buttonSearch {
+  padding: 8px 16px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.buttonSearch:hover:not(:disabled) {
+  background: #333333;
+}
+
+.buttonSearch:disabled {
+  background: #aaaaaa;
+  cursor: not-allowed;
+}
+
+/* ===== BUTTON SUBMIT ===== */
+/* ปุ่ม Create Course — สีดำ ความสำคัญหลัก */
+.buttonSubmit {
+  flex: 1;
+  padding: 10px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.buttonSubmit:hover:not(:disabled) {
+  background: #333333;
+}
+
+.buttonSubmit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.buttonSubmit:disabled {
+  background: #aaaaaa;
+  cursor: not-allowed;
+}
+
+/* ===== BUTTON EDIT ===== */
+/* ปุ่ม Edit ใน course card */
+.buttonEdit {
+  font-size: 13px;
+  padding: 4px 12px;
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttonEdit:hover {
+  background: #f5f5f5;
+}
+
+/* ===== BUTTON DELETE ===== */
+/* ปุ่ม Delete ใน course card — สีแดง */
+.buttonDelete {
+  font-size: 13px;
+  padding: 4px 12px;
+  background: transparent;
+  color: #d32f2f;
+  border: 1px solid #f5c6c6;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buttonDelete:hover {
+  background: #fdecea;
+}

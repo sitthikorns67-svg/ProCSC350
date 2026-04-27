@@ -1,0 +1,385 @@
+/* =====================================
+   แถบด้านบน
+   ===================================== */
+
+/* แถบด้านบนสีม่วงติดด้านบน */
+.nav {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ส่วนด้านในแถบด้านบน จัดเรียงแนวนอน */
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+/* รายการลิงก์แถบด้านบน เรียงแนวนอน */
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ลบมาร์จิน */
+.navList li {
+  margin: 0;
+}
+
+/* ลิงก์แถบด้านบน สีขาว */
+.navList a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* เมื่อชี้ลิงก์ - เลื่อนขึ้นและเปลี่ยนพื้นหลัง */
+.navList a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+
+/* =====================================
+   ส่วนกลางจอ
+   ===================================== */
+
+/* บริเวณกลางจอสีม่วง ข้อความสีขาว จัดตรงกลาง */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ส่วนด้านในกลางจอ จัดเรียงข้อความ */
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* หัวข้อใหญ่มีเงา */
+.hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: -1px;
+}
+
+/* ข้อความอธิบาย */
+.hero p {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.95;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+
+/* =====================================
+   ส่วนปุ่ม
+   ===================================== */
+
+/* พื้นหลังสีขาวอ่อน */
+.cta {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* ส่วนด้านในปุ่ม จัดตรงกลาง */
+.ctaContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* หัวข้อปุ่ม สีเข้ม */
+.cta h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 15px 0;
+  letter-spacing: -0.5px;
+}
+
+/* ข้อความอธิบายสีเทา */
+.cta p {
+  font-size: 18px;
+  color: #555;
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Groupปุ่ม แนวนอน */
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* สไตล์ปุ่ม */
+.button {
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ปุ่มสมัครสีม่วง */
+.buttonPrimary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* เมื่อชี้ปุ่มสมัคร - เลื่อนขึ้นและเงาเพิ่ม */
+.buttonPrimary:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* ปุ่มLOGINขาว border สีน้ำเงิน */
+.buttonSecondary {
+  background-color: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+/* เมื่อชี้ปุ่มLOGIN - เปลี่ยนเป็นน้ำเงิน */
+.buttonSecondary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+
+/* =====================================
+   ส่วนท้าย
+   ===================================== */
+
+/* พื้นหลังสีเข้ม */
+.footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+  color: white;
+  padding: 50px 20px;
+  border-top: 3px solid #667eea;
+}
+
+/* ส่วนด้านในท้าย แนวนอน */
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ลิขสิทธิ์สีเทา */
+.footerLeft {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ลิงก์ท้าย แนวนอน */
+.footerLinks {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ลิงก์สีขาว */
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* เมื่อชี้ลิงก์ - เปลี่ยนเป็นน้ำเงิน */
+.footerLinks a:hover {
+  color: #667eea;
+  text-decoration: underline;
+}
+
+/* =====================================
+   หน้าจอเล็ก (มือถือ)
+   ===================================== */
+@media (max-width: 768px) {
+  /* ลดระยะลิงก์นำทาง */
+  .navList {
+    gap: 20px;
+  }
+
+  /* ลดขนาดลิงก์ */
+  .navList a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  /* ลดขนาดส่วนหลัก */
+  .hero {
+    padding: 60px 20px;
+    min-height: 400px;
+  }
+
+  /* ลดหัวข้อหลัก */
+  .hero h1 {
+    font-size: 32px;
+    margin: 0 0 15px 0;
+  }
+
+  /* ลดข้อความ */
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* ลดพื้นที่ส่วนปุ่ม */
+  .cta {
+    padding: 60px 20px;
+  }
+
+  /* ลดหัวข้อปุ่ม */
+  .cta h2 {
+    font-size: 28px;
+  }
+
+  /* ลดข้อความปุ่ม */
+  .cta p {
+    font-size: 16px;
+  }
+
+  /* ปุ่มแนวตั้ง */
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  /* ปุ่มขยายเต็มความกว้าง */
+  .button {
+    width: 100%;
+    padding: 12px 30px;
+  }
+
+  /* ท้ายแนวตั้ง */
+  .footerContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* ลิงก์แนวตั้ง */
+  .footerLinks {
+    justify-content: center;
+  }
+
+  .footer {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navContainer {
+    height: 60px;
+  }
+
+  .navList {
+    gap: 15px;
+  }
+
+  .navList a {
+    font-size: 13px;
+    padding: 4px 8px;
+  }
+
+  .hero {
+    padding: 40px 15px;
+    min-height: 350px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .cta {
+    padding: 40px 15px;
+  }
+
+  .ctaContainer {
+    max-width: 100%;
+  }
+
+  .cta h2 {
+    font-size: 22px;
+  }
+
+  .cta p {
+    font-size: 14px;
+    margin: 0 0 25px 0;
+  }
+
+  .buttonGroup {
+    gap: 12px;
+  }
+
+  .button {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footerLeft {
+    font-size: 12px;
+  }
+
+  .footerLinks {
+    gap: 20px;
+    font-size: 12px;
+  }
+
+  .footerLinks a {
+    font-size: 12px;
+  }
+}
+

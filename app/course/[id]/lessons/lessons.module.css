@@ -1,0 +1,58 @@
+.lessons-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.lesson-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.lesson-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.video-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  display: block;
+}
+
+.lesson-content {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.lesson-divider {
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  margin: 0;
+}

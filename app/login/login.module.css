@@ -1,0 +1,149 @@
+
+/* ===== CONTAINER ===== */
+/* ครอบทั้งหน้า ให้ form อยู่กลางจอทั้งแนวตั้งและแนวนอน */
+.container {
+  min-height: 100vh;        /* ความสูงเต็มหน้าจอ */
+  display: flex;            /* ใช้ flexbox จัดวาง */
+  align-items: center;      /* จัดกึ่งกลางแนวตั้ง */
+  justify-content: center;  /* จัดกึ่งกลางแนวนอน */
+  background-color: #f5f5f5; /* พื้นหลังสีเทาอ่อน */
+}
+
+/* ===== CARD ===== */
+/* กล่องสีขาวที่ครอบ form ทั้งหมด */
+.card {
+  background: #ffffff;          /* พื้นหลังสีขาว */
+  border: 1px solid #e0e0e0;    /* ขอบสีเทาอ่อน */
+  border-radius: 12px;          /* มุมโค้งมน */
+  padding: 2rem;                /* ระยะห่างด้านใน */
+  width: 100%;                  /* กว้างเต็ม */
+  max-width: 360px;             /* กว้างสูงสุด 360px ไม่ให้ยืดเกิน */
+}
+
+/* ===== TITLE ===== */
+/* หัวข้อ "เข้าสู่ระบบ" */
+.title {
+  font-size: 22px;        /* ขนาดตัวอักษร */
+  font-weight: 500;       /* ความหนาของตัวอักษร (medium) */
+  margin: 0 0 1.5rem;     /* ระยะห่างด้านล่างก่อนถึง form */
+  color: #1a1a1a;         /* สีตัวอักษรเกือบดำ */
+}
+
+/* ===== FORM ===== */
+/* จัด field ต่าง ๆ ใน form ให้เรียงแนวตั้ง */
+.form {
+  display: flex;          /* ใช้ flexbox */
+  flex-direction: column; /* เรียงลูกแนวตั้ง */
+  gap: 1rem;              /* ระยะห่างระหว่าง field แต่ละอัน */
+}
+
+/* ===== FIELD GROUP ===== */
+/* กลุ่มของ label + input แต่ละช่อง */
+.fieldGroup {
+  display: flex;          /* ใช้ flexbox */
+  flex-direction: column; /* label อยู่บน input อยู่ล่าง */
+  gap: 6px;               /* ระยะห่างระหว่าง label กับ input */
+}
+
+/* ===== LABEL ===== */
+/* ป้ายกำกับของแต่ละช่องกรอก */
+.label {
+  font-size: 13px;   /* ขนาดตัวอักษรเล็กกว่า input */
+  color: #666666;    /* สีเทากลาง ๆ ให้ดูรองลงมาจาก input */
+}
+
+/* ===== INPUT ===== */
+/* ช่องกรอกข้อมูล (อีเมล / รหัสผ่าน) */
+.input {
+  width: 100%;                /* กว้างเต็ม fieldGroup */
+  padding: 8px 12px;          /* ระยะห่างด้านในบน-ล่าง 8px, ซ้าย-ขวา 12px */
+  font-size: 14px;            /* ขนาดตัวอักษรที่พิมพ์ */
+  border: 1px solid #e0e0e0;  /* ขอบสีเทาอ่อน */
+  border-radius: 8px;         /* มุมโค้งมน */
+  outline: none;              /* ลบ outline เริ่มต้นของ browser */
+  box-sizing: border-box;     /* padding ไม่ทำให้ขยายเกิน width */
+  transition: border-color 0.2s; /* animation เปลี่ยนสีขอบแบบค่อยเป็นค่อยไป */
+}
+
+/* เมื่อเอาเมาส์ชี้ที่ input */
+.input:hover {
+  border-color: #b0b0b0; /* ขอบเข้มขึ้นนิดหน่อยเพื่อบอกว่า interactive */
+}
+
+/* เมื่อคลิกเลือก input (กำลังพิมพ์) */
+.input:focus {
+  border-color: #1a1a1a;                  /* ขอบเปลี่ยนเป็นสีเข้มบอกว่า active */
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.08); /* เงารอบ ๆ ให้เห็นชัดว่า focus อยู่ */
+}
+
+/* ===== LINKS ===== */
+/* แถวที่มีลิงก์ "สมัครสมาชิก" และ "ลืมรหัสผ่าน?" */
+.links {
+  display: flex;              /* เรียงแนวนอน */
+  justify-content: space-between; /* ดันลิงก์ชิดซ้ายและขวา */
+  font-size: 13px;            /* ขนาดตัวอักษรเล็ก */
+}
+
+/* ลิงก์หลัก "สมัครสมาชิก" */
+.linkPrimary {
+  color: #1a6ef5;        /* สีน้ำเงิน ดึงดูดความสนใจ */
+  text-decoration: none; /* ลบเส้นใต้ default */
+}
+
+.linkPrimary:hover {
+  text-decoration: underline; /* ขีดเส้นใต้เมื่อ hover */
+}
+
+/* ลิงก์รอง "ลืมรหัสผ่าน?" */
+.linkSecondary {
+  color: #888888;        /* สีเทา ให้ความสำคัญน้อยกว่า linkPrimary */
+  text-decoration: none;
+}
+
+.linkSecondary:hover {
+  text-decoration: underline;
+}
+
+/* ===== BUTTON ===== */
+/* ปุ่ม "เข้าสู่ระบบ" */
+.button {
+  width: 100%;           /* กว้างเต็ม card */
+  margin-top: 0.5rem;    /* ระยะห่างจาก links ด้านบน */
+  padding: 10px;         /* ระยะห่างด้านในให้ปุ่มดูใหญ่กดง่าย */
+  background: #1a1a1a;   /* พื้นหลังสีดำ */
+  color: #ffffff;        /* ตัวอักษรสีขาว */
+  border: none;          /* ไม่มีขอบ */
+  border-radius: 8px;    /* มุมโค้งมน */
+  font-size: 15px;       /* ขนาดตัวอักษร */
+  font-weight: 500;      /* ความหนาระดับกลาง */
+  cursor: pointer;       /* เปลี่ยน cursor เป็นมือเมื่อชี้ */
+  transition: background 0.2s, transform 0.1s; /* animation เปลี่ยนสีและขนาด */
+}
+
+/* เมื่อ hover และปุ่มไม่ได้ถูก disabled */
+.button:hover:not(:disabled) {
+  background: #333333; /* สีอ่อนลงนิดหน่อย ให้รู้ว่า hover */
+}
+
+/* เมื่อกดปุ่ม (ยังไม่ปล่อย) */
+.button:active:not(:disabled) {
+  transform: scale(0.98); /* หดเล็กลงนิดหน่อยให้รู้สึกว่ากด */
+}
+
+/* เมื่อปุ่ม disabled (กำลังโหลด) */
+.button:disabled {
+  background: #aaaaaa; /* สีเทาบอกว่ากดไม่ได้ */
+  cursor: not-allowed;  /* เปลี่ยน cursor เป็นห้ามกด */
+}
+
+/* ===== ERROR MESSAGE ===== */
+/* กล่องแสดงข้อความ error เมื่อ login ไม่สำเร็จ */
+.error {
+  font-size: 13px;          /* ขนาดตัวอักษรเล็ก */
+  color: #d32f2f;           /* สีแดงบอกว่าเป็น error */
+  margin: 0;                /* ลบ margin default ของ <p> */
+  padding: 8px 12px;        /* ระยะห่างด้านในให้ดูเป็นกล่อง */
+  background: #fdecea;      /* พื้นหลังสีแดงอ่อนมาก */
+  border-radius: 8px;       /* มุมโค้งมน */
+  border: 1px solid #f5c6c6; /* ขอบสีแดงอ่อน */
+}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import styles from './login.module.css';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -52,35 +53,66 @@ export default function LoginPage() {
     }
   }
 
-  return (
-    <div>
-      <h1>เข้าสู่ระบบ</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>อีเมล</label>
+ return (
+  <div className={styles.container}>{/*ทั้งหน้า — จัดให้อยู่กลางจอ */}
+    {/* กล่องสีขาว (card) ที่ครอบ form ทั้งหมด */}
+    <div className={styles.card}>
+
+      {/* หัวข้อหน้า */}
+      <h1 className={styles.title}>เข้าสู่ระบบ</h1>
+
+      {/* form — เมื่อ submit จะเรียก handleLogin */}
+      <form className={styles.form} onSubmit={handleLogin}>
+
+        {/* ===== ช่องอีเมล ===== */}
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>อีเมล</label>
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            className={styles.input}
+            type="email"                         
+            value={email}                         
+            onChange={(e) => setEmail(e.target.value)} 
+            required                              
           />
         </div>
-        <div>
-          <label>รหัสผ่าน</label>
+
+        {/* ===== ช่องรหัสผ่าน ===== */}
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>รหัสผ่าน</label>
           <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            className={styles.input}
+            type="password"                            
+            value={password}                           
+            onChange={(e) => setPassword(e.target.value)} 
+            required                                  
+            />
         </div>
-        <a href="#">สมัครสมาชิก</a>
-        <a href="#">ลืมรหัสผ่าน?</a>
-        <button type="submit" disabled={loading} onClick={handleLogin}>
+
+        {/* ===== แถวลิงก์ ===== */}
+        <div className={styles.links}>
+          {/* ลิงก์ไปหน้าสมัครสมาชิก — สีน้ำเงิน (primary) */}
+          <a href="#" className={styles.linkPrimary}>สมัครสมาชิก</a>
+
+          {/* ลิงก์ลืมรหัสผ่าน — สีเทา (secondary) ความสำคัญรองลงมา */}
+          <a href="#" className={styles.linkSecondary}>ลืมรหัสผ่าน?</a>
+        </div>
+
+        {/* ===== ปุ่ม submit ===== */}
+        <button
+          className={styles.button}
+          type="submit"
+          disabled={loading}  >{/* ปิดปุ่มระหว่างรอ API ป้องกันกด 2 ครั้ง */}
+        
+          {/* สลับข้อความตาม state loading */}
           {loading ? 'กำลังเข้าสู่ระบบ...' : 'เข้าสู่ระบบ'}
         </button>
-        {error && <p>{error}</p>}
+
+        {/* ===== แสดง error ===== */}
+        {/* render เฉพาะเมื่อมี error message (conditional rendering) */}
+        {error && <p className={styles.error}>{error}</p>}
+
       </form>
     </div>
-  );
+  </div>
+);
 }

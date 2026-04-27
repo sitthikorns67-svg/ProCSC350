@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import styles from './createCourse.module.css'
 
 export default function CreateCoursePage() {
   const router = useRouter()
@@ -90,120 +91,137 @@ export default function CreateCoursePage() {
     }
   }
 
-  return (
-    <div>
-      <h1>Create New Course</h1>
+
+
+return (
+  <div className={styles.container}>
+    <div className={styles.inner}>
+
+      <h1 className={styles.title}>Create New Course</h1>
 
       {/* Search by Instructor ID */}
-      <div>
-        <h2>All Courses by Instructor ID</h2>
+      <h2 className={styles.sectionTitle}>All Courses by Instructor ID</h2>
+      <div className={styles.searchRow}>
         <input
+          className={styles.inputText}
           type="number"
           value={instructorSearchId}
           onChange={(e) => setInstructorSearchId(e.target.value)}
           placeholder="Enter instructor ID"
           onKeyDown={(e) => e.key === 'Enter' && handleSearchByInstructor()}
         />
-        <button onClick={handleSearchByInstructor}>
+        <button className={styles.buttonSearch} onClick={handleSearchByInstructor} disabled={loading}>
           {loading ? 'Searching...' : 'Search'}
         </button>
       </div>
 
+      {/* แสดงผลการค้นหา */}
       {courses.length > 0 && (
         <div>
-          <p>Found {courses.length} course(s)</p>
           {courses.map((c) => (
-            <div key={c.id}>
-              <p>ID: {c.id}</p>
-              <p>Title: {c.title}</p>
-              <p>Description: {c.description}</p>
-              <p>Status: {c.is_published ? 'Published' : 'Draft'}</p>
+            <div className={styles.courseCard} key={c.id}>
+              <p className={styles.courseCardTitle}>ID: {c.id} — {c.title}</p>
+              <p className={styles.courseCardDesc}>{c.description}</p>
+              <div className={styles.courseCardActions}>
+                <span className={`${styles.badge} ${c.is_published ? styles.badgePublished : styles.badgeDraft}`}>
+                  {c.is_published ? 'Published' : 'Draft'}
+                </span>
+                <button className={styles.buttonEdit} onClick={() => router.push(`/instructor/lesson/${c.id}`)}>Edit</button>
+                <button className={styles.buttonDelete} onClick={() => handleDelete(c.id)}>Delete</button>
+              </div>
               {c.thumbnail_url && (
-                <img src={c.thumbnail_url} alt={c.title} width={200} />
+                <img className={styles.thumbnailPreview} src={c.thumbnail_url} alt={c.title} width={200} />
               )}
-              <button onClick={() => router.push(`/instructor/lesson/${c.id}`)}>Edit</button>
-              <button onClick={() => handleDelete(c.id)}>Delete</button>
-              <hr />
             </div>
           ))}
         </div>
       )}
 
+      {/* ไม่พบ course */}
       {courses.length === 0 && instructorSearchId && !loading && (
         <p>No courses found for instructor ID: {instructorSearchId}</p>
       )}
 
-      <hr />
+      <hr className={styles.divider} />
 
       {/* Create Form */}
-      <div>
-        <label>Instructor ID *</label>
-        <input
-          type="number"
-          name="instructor_id"
-          value={form.instructor_id}
-          onChange={handleChange}
-          placeholder="Enter instructor ID"
-        />
-      </div>
+      <div className={styles.form}>
 
-      <div>
-        <label>Title *</label>
-        <input
-          type="text"
-          name="title"
-          value={form.title}
-          onChange={handleChange}
-          placeholder="Course title"
-        />
-      </div>
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Instructor ID <span className={styles.required}>*</span></label>
+          <input
+            className={styles.inputNumber}
+            type="number"
+            name="instructor_id"
+            value={form.instructor_id}
+            onChange={handleChange}
+            placeholder="Enter instructor ID"
+          />
+        </div>
 
-      <div>
-        <label>Description</label>
-        <textarea
-          name="description"
-          value={form.description}
-          onChange={handleChange
-          }
-          placeholder="Course description"
-          rows={4}
-        />
-      </div>
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Title <span className={styles.required}>*</span></label>
+          <input
+            className={styles.inputText}
+            type="text"
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            placeholder="Course title"
+          />
+        </div>
 
-      <div>
-        <label>Thumbnail URL</label>
-        <input
-          type="text"
-          name="thumbnail_url"
-          value={form.thumbnail_url}
-          onChange={handleChange}
-          placeholder="https://..."
-        />
-        {form.thumbnail_url && (
-          <img src={form.thumbnail_url} alt="preview" width={200} />
-        )}
-      </div>
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Description</label>
+          <textarea
+            className={styles.textarea}
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            placeholder="Course description"
+            rows={4}
+          />
+        </div>
 
-      <div>
-        <label>
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Thumbnail URL</label>
+          <input
+            className={styles.inputText}
+            type="text"
+            name="thumbnail_url"
+            value={form.thumbnail_url}
+            onChange={handleChange}
+            placeholder="https://..."
+          />
+          {form.thumbnail_url && (
+            <img className={styles.thumbnailPreview} src={form.thumbnail_url} alt="preview" width={200} />
+          )}
+        </div>
+
+        <div className={styles.checkboxRow}>
           <input
             type="checkbox"
+            id="is_published"
             name="is_published"
             checked={form.is_published}
             onChange={handleChange}
           />
-          Publish immediately
-        </label>
+          <label htmlFor="is_published">Publish immediately</label>
+        </div>
+
+        {error && <p className={styles.error}>Error: {error}</p>}
+
+        <div className={styles.buttonGroup}>
+          <button className={styles.buttonCancel} onClick={() => router.back()} disabled={loading}>
+            Cancel
+          </button>
+          <button className={styles.buttonSubmit} onClick={handleSubmit} disabled={loading}>
+            {loading ? 'Creating...' : 'Create Course'}
+          </button>
+        </div>
+
       </div>
-
-      {error && <p>Error: {error}</p>}
-
-      <button onClick={() => router.back()} disabled={loading}>
-        Cancel
-      </button>
-      <button onClick={handleSubmit} disabled={loading}>
-        {loading ? 'Creating...' : 'Create Course'}
-      </button>
     </div>
-  )
+  </div>
+)
 }

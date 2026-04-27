@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
+import styles from './createLesson.module.css'
 
 export default function CreateLessonPage() {
   const { id } = useParams()
@@ -49,60 +50,74 @@ export default function CreateLessonPage() {
     }
   }
 
-  return (
-    <div>
-      <h1>Add Lesson to Course ID: {id}</h1>
+ return (
+  <div className={styles.container}>
+    <div className={styles.inner}>
+      <h1 className={styles.title}>Add Lesson to Course ID: {id}</h1>
 
-      <div>
-        <label>Title *</label>
-        <input
-          type="text"
-          name="title"
-          value={form.title}
-          onChange={handleChange}
-          placeholder="Lesson title"
-        />
+      <div className={styles.form}>
+
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Title *</label>
+          <input
+            className={styles.inputText}
+            type="text"
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            placeholder="Lesson title"
+          />
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Video URL</label>
+          <input
+            className={styles.inputText}
+            type="text"
+            name="video_url"
+            value={form.video_url}
+            onChange={handleChange}
+            placeholder="https://..."
+          />
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Content</label>
+          <textarea
+            className={styles.textarea}
+            name="content"
+            value={form.content}
+            onChange={handleChange}
+            placeholder="Lesson content"
+            rows={5}
+          />
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label className={styles.label}>Position</label>
+          <input
+            className={styles.inputNumber}
+            type="number"
+            name="position"
+            value={form.position}
+            onChange={handleChange}
+            placeholder="0"
+          />
+        </div>
+
+        {error && <p className={styles.error}>Error: {error}</p>}
+
+        <div className={styles.buttonGroup}>
+          <button className={styles.buttonCancel} onClick={() => router.back()} disabled={loading}>
+            Cancel
+          </button>
+          <button className={styles.buttonSubmit} onClick={handleSubmit} disabled={loading}>
+            {loading ? 'Adding...' : 'Add Lesson'}
+          </button>
+        </div>
+
       </div>
-
-      <div>
-        <label>Video URL</label>
-        <input
-          type="text"
-          name="video_url"
-          value={form.video_url}
-          onChange={handleChange}
-          placeholder="https://..."
-        />
-      </div>
-
-      <div>
-        <label>Content</label>
-        <textarea
-          name="content"
-          value={form.content}
-          onChange={handleChange}
-          placeholder="Lesson content"
-          rows={5}
-        />
-      </div>
-
-      <div>
-        <label>Position</label>
-        <input
-          type="number"
-          name="position"
-          value={form.position}
-          onChange={handleChange}
-          placeholder="0"
-        />
-      </div>
-
-      {error && <p>Error: {error}</p>}
-
-      <button onClick={() => router.back()} disabled={loading}>Cancel</button>
-      <button onClick={handleSubmit} disabled={loading}>
-        {loading ? 'Adding...' : 'Add Lesson'}
-      </button>
     </div>
-  )
+  </div>
+)
 }
