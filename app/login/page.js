@@ -91,7 +91,7 @@ export default function LoginPage() {
         {/* ===== แถวลิงก์ ===== */}
         <div className={styles.links}>
           {/* ลิงก์ไปหน้าสมัครสมาชิก — สีน้ำเงิน (primary) */}
-          <a href="#" className={styles.linkPrimary}>สมัครสมาชิก</a>
+          <a href="/register" className={styles.linkPrimary}>สมัครสมาชิก</a>
 
           {/* ลิงก์ลืมรหัสผ่าน — สีเทา (secondary) ความสำคัญรองลงมา */}
           <a href="#" className={styles.linkSecondary}>ลืมรหัสผ่าน?</a>
