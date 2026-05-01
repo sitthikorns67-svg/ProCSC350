@@ -1,8 +1,23 @@
 import { NextResponse } from 'next/server'
-export async function GET() {
-  const res = await fetch('https://online-cours-api-puap.vercel.app/api/courses')
-  const data = await res.json()
-  return Response.json(data, { status: res.status })
+
+const BASE_URL = "https://online-cours-api-puap.vercel.app";
+
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+
+  const instructor_id = searchParams.get("instructor_id");
+
+  let url = `${BASE_URL}/api/courses`;
+
+  // if has query param -> add to url
+  if (instructor_id) {
+    url += `?instructor_id=${instructor_id}`;
+  }
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return NextResponse.json(data, { status: res.status });
 }
 
 export async function POST(request) {
