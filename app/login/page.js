@@ -94,7 +94,7 @@ export default function LoginPage() {
           <a href="/register" className={styles.linkPrimary}>สมัครสมาชิก</a>
 
           {/* ลิงก์ลืมรหัสผ่าน — สีเทา (secondary) ความสำคัญรองลงมา */}
-          <a href="#" className={styles.linkSecondary}>ลืมรหัสผ่าน?</a>
+          <a href="/forgot-password" className={styles.linkSecondary}>ลืมรหัสผ่าน?</a>
         </div>
 
         {/* ===== ปุ่ม submit ===== */}
